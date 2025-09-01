@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exams</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicon.ico">
+
+    <!-- <link rel="stylesheet" href="./css/student.css" /> -->
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/exams.css">
+    <script src="./js/exams.js" defer></script>
+  </head>
+  <body>
+    <div class="super-container">
+        <aside class="sidebar">
+        <img src="./assets/logos/edutrackWhite.png" id="logo" />
+        <nav class="sidebar-nav">
+          <ul>
+            <a href="./home.html"><li><img src="./assets/dashboard.png" /> Dashboard</li> </a>
+            <a href="./student.html"><li><img src="./assets/students.png" />Student</li></a>
+            <a href="./teachers.html"><li><img src="./assets/teachers.png" />Teacher</li></a>
+            <a href="./timetable.html"><li><img src="./assets/time-table.png" />Time-Table</li></a>
+            <a href="./exams.html"><li class="highlight"><img src="./assets/exams.png" />Exams</li></a>
+            <a href="./report.html"><li><img src="./assets/report.png" />Report</li></a>
+            <a href="./settings.html"><li><img src="./assets/setting.png" />Setting</li></a>
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-section">
+        <div class="heading">Exams</div>
+        <table class="exams-table">
+          <thead>
+            <tr id="header-row">
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Exam rows will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </main>
+    </div>
+  </body>
+</html>

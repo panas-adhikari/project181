@@ -1,0 +1,73 @@
+.table-list{
+     height:80vh;
+  overflow: scroll;        /* scroll vertically if too many items */
+  padding: 1rem;
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap: 0.8rem;             /* space between items */
+  backdrop-filter: blur(10px);
+ 
+}
+.class-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(88, 76, 76, 0.055);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 10px;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: clamp(250px, 80%, 350px);
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #eee;
+}
+
+.info span {
+  font-weight: bold;
+  color: #ffffff;
+}
+#table-modal{
+    display: none;
+}
+table {
+  width: 90%;
+  margin: 20px auto;         
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px 15px;        /* cell spacing */
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+}

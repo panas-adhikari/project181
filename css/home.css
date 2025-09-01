@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:rgba(29, 27, 27, 0.863);
+}
+
+.home-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: rgba(29, 27, 27, 0.863);
+}
+
+/* Main content wrapper */
+.main-content {
+  flex: 1;
+  /* padding: 2rem; */
+  margin: 2rem;
+  /* border: 2px red solid; */
+  border-radius: 5px;
+  background-image: url("../assets/logos/edutrackAwhite.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-color: black;
+box-shadow: 1px 10px 10px black;
+}
+
+/* Dashboard container */
+.dashboard {
+  backdrop-filter: blur(5px);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  
+}
+
+/* Heading */
+.dashboard .heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Dashboard grid */
+.dashboard-contents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 1.2rem;
+}
+
+/* Individual cards */
+.dashboard-contents > div {
+  background: #00000094;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(255, 255, 255, 0.589);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-contents > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.card {
+  background: #000000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.attendance-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Circle display */
+.attendance-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#fdfdfd 0% 85%, #ddd 85% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.attendance-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Subtext */
+.attendance-subtext {
+  font-size: 0.9rem;
+  color: #ffffff;
+}

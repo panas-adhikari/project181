@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Table</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon.ico" />
+
+    <link rel="stylesheet" href="./css/common.css" />
+    <!-- <link rel="stylesheet" href="./css/student.css" /> -->
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/timetable.css" />
+    <script src="./js/common.js" defer></script>
+    <script src="./js/timetable.js" defer></script>
+  </head>
+  <body>
+    <div class="super-container">
+      <aside class="sidebar">
+        <img src="./assets/logos/edutrackWhite.png" id="logo" />
+        <nav class="sidebar-nav">
+          <ul>
+            <a href="./home.html"
+              ><li><img src="./assets/dashboard.png" /> Dashboard</li>
+            </a>
+            <a href="./student.html"
+              ><li><img src="./assets/students.png" />Student</li></a
+            >
+            <a href="./teachers.html"
+              ><li><img src="./assets/teachers.png" />Teacher</li></a
+            >
+            <a href="./timetable.html"
+              ><li class="highlight">
+                <img src="./assets/time-table.png" />Time-Table
+              </li></a
+            >
+            <a href="./exams.html"
+              ><li><img src="./assets/exams.png" />Exams</li></a
+            >
+            <a href="./report.html"
+              ><li><img src="./assets/report.png" />Report</li></a
+            >
+            <a href="./settings.html"
+              ><li><img src="./assets/setting.png" />Setting</li></a
+            >
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-section">
+        <div class="modal" id="table-modal">
+          <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="class-table">
+              <table id="class-timetable">
+                <thead>
+                  <tr>
+                    <th>Period</th>
+                    <th>Subject</th>
+                    <th>Teacher</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <!-- Timetable rows will be inserted here dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="table-list" id="table-list">
+          <div class="class-card">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Subjects :</span>10</div>
+              <div><span>Class Start : </span>9:30 AM</div>
+              <div><span>Class End : </span>5:30 PM</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

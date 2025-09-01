@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon.ico" />
+
+    <title>Teachers</title>
+    <!-- <link rel="stylesheet" href="./css/student.css" /> -->
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/teachers.css" />
+    <script src="./js/teacher.js" type="module" defer></script>
+    <script src="./js/common.js" defer></script>
+  </head>
+  <body>
+    <div class="super-container">
+      <aside class="sidebar">
+        <img src="./assets/logos/edutrackWhite.png" id="logo" />
+        <nav class="sidebar-nav">
+          <ul>
+            <a href="./home.html"
+              ><li><img src="./assets/dashboard.png" /> Dashboard</li>
+            </a>
+            <a href="./student.html"
+              ><li><img src="./assets/students.png" />Student</li></a
+            >
+            <a href="./teachers.html"
+              ><li class="highlight">
+                <img src="./assets/teachers.png" />Teacher
+              </li></a
+            >
+            <a href="./timetable.html"
+              ><li><img src="./assets/time-table.png" />Time-Table</li></a
+            >
+            <a href="./exams.html"
+              ><li><img src="./assets/exams.png" />Exams</li></a
+            >
+            <a href="./report.html"
+              ><li><img src="./assets/report.png" />Report</li></a
+            >
+            <a href="./settings.html"
+              ><li><img src="./assets/setting.png" />Setting</li></a
+            >
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-section">
+        <div class="optionbar">
+          <nav class="option-nav">
+            <ul>
+              <li onclick="openModal('addTeacherModal','Add New Teacher')">
+                <a href="#" class="add-new-btn">
+                  <img src="./assets/add.png" alt="Add" /> Add New
+                </a>
+              </li>
+              <!-- <li>
+                <a href="#" class="assign-subjects">
+                  <img src="./assets/assign.png" alt="assign subject" />
+                  Assign Subjects</a
+                >
+              </li> -->
+            </ul>
+          </nav>
+        </div>
+        <div id="addTeacherModal" class="modal">
+          <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+              <!-- Java script will insert <h2> title </h2 >  here -->
+            </div>
+
+            <!-- Student Form -->
+            <form class="teacher-form">
+              <div class="form-group">
+                <label for="teacherName">Full Name</label>
+                <input
+                  type="text"
+                  id="teacherName"
+                  name="teacherName"
+                  placeholder="Enter Teacher's full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-options">
+                  <label>
+                    <input type="radio" name="gender" value="Male" required />
+                    Male
+                  </label>
+                  <label>
+                    <input type="radio" name="gender" value="Female" required />
+                    Female
+                  </label>
+                  <label>
+                    <input type="radio" name="gender" value="Other" /> Other
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="specialty-subject-input">Specialty Subjects</label>
+                <div class="add-subject-wrapper">
+                  <input
+                    type="text"
+                    id="specialty-subject-input"
+                    name="specialtySubject"
+                    placeholder="e.g., Mathematics, Physics"
+                  />
+                  <button type="button" id="add-subject-btn">Add</button>
+                </div>
+                <div id="specialty-subjects-list" class="subjects-list"></div>
+              </div>
+              <div class="form-group">
+                <label for="teacher-assigned-class"
+                  >Class (hold Ctrl or Cmd to select multiple)</label
+                >
+                <select id="teacher-assigned-class" multiple required>
+                  <!-- Options will be filled dynamically from JS -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="teacher-level">Level</label>
+                <select id="teacher-level" required>
+                  <!-- Options will be filled dynamically from JS -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experience">Experience (in years)</label>
+                <input
+                  type="number"
+                  id="experience"
+                  name="experience"
+                  placeholder="e.g. 5"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input
+                  type="tel"
+                  id="contact"
+                  name="contact"
+                  placeholder="9876543210"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@mail.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="arrial">Arrival Time</label>
+                <input type="time" id="arrival" name="arrival" required />
+              </div>
+              <div class="form-group">
+                <label for="departure">Departure Time</label>
+                <input type="time" id="departure" name="departure" required />
+              </div>
+
+              <!-- Actions -->
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="cancel-btn"
+                  onclick="closeModal('addTeacherModal')"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="reset"
+                  class="submit-btn"
+                  onclick="closeModal('addTeacherModal')"
+                >
+                  Add Teacher
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="teachers-list" id="teachers-list">
+          <!-- <div class="teacher-card" id="TCH2025SEC001">
+            <div class="teacher-header">
+              <h2 class="teacher-name">Mr. Rajesh Kumar</h2>
+              <span class="teacher-level">Secondary</span>
+            </div>
+            <div class="teacher-details">
+              <p><strong>Subjects:</strong> Mathematics, Physics</p>
+              <p><strong>Assigned Classes:</strong> 2025CLS09, 2025CLS10</p>
+              <p><strong>Arrival Time:</strong> 08:30 AM</p>
+              <p><strong>Departure Time:</strong> 03:30 PM</p>
+              <p><strong>Contact:</strong> +91-9876543210</p>
+              <p><strong>Email:</strong> rajesh.kumar@school.edu</p>
+            </div>
+
+            <div class="teacher-actions">
+              <button class="update-btn">Update Info</button>
+              <button class="view-btn">View Schedule</button>
+            </div>
+          </div> -->
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

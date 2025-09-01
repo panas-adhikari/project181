@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon.ico" />
+
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/student.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <script src="./js/demoData.js" type="module"></script>
+    <script src="./js/student.js" type="module" defer></script>
+    <script src="./js/common.js" defer></script>
+  </head>
+  <body>
+    <div class="super-container">
+      <aside class="sidebar">
+        <img src="./assets/logos/edutrackWhite.png" id="logo" />
+        <nav class="sidebar-nav">
+          <ul>
+            <a href="./home.html"
+              ><li><img src="./assets/dashboard.png" /> Dashboard</li>
+            </a>
+            <a href="./student.html"
+              ><li class="highlight">
+                <img src="./assets/students.png" />Student
+              </li></a
+            >
+            <a href="./teachers.html"
+              ><li><img src="./assets/teachers.png" />Teacher</li></a
+            >
+            <a href="./timetable.html"
+              ><li><img src="./assets/time-table.png" />Time-Table</li></a
+            >
+            <a href="./exams.html"
+              ><li><img src="./assets/exams.png" />Exams</li></a
+            >
+            <a href="./report.html"
+              ><li><img src="./assets/report.png" />Report</li></a
+            >
+            <a href="./settings.html"
+              ><li><img src="./assets/setting.png" />Setting</li></a
+            >
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-section">
+        <div class="optionbar">
+          <nav class="option-nav">
+            <ul>
+              <li onclick="openModal('newStudentModal','Add New Student')">
+                <a href="#" class="add-new-btn">
+                  <img src="./assets/add.png" alt="Add" /> Add New
+                </a>
+              </li>
+              <li>
+                <a href="#" class="assign-subjects">
+                  <img src="./assets/assign.png" alt="assign subject" />
+                  Assign Subjects</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- New Student Modal -->
+        <div id="newStudentModal" class="modal">
+          <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+              <!-- Java script will insert <h2> title </h2 >  here -->
+            </div>
+
+            <!-- Student Form -->
+            <form class="student-form">
+              <div class="form-group">
+                <label for="studentClass">Class</label>
+                <select id="studentClass" required>
+                  <!-- Options will be filled dynamically from JS -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input
+                  type="text"
+                  id="studentName"
+                  name="studentName"
+                  placeholder="Enter student's full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-options">
+                  <label>
+                    <input type="radio" name="gender" value="Male" required />
+                    Male
+                  </label>
+                  <label>
+                    <input type="radio" name="gender" value="Female" required />
+                    Female
+                  </label>
+                  <label>
+                    <input type="radio" name="gender" value="Other" /> Other
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="classRoll">Class Roll No</label>
+                <input
+                  type="text"
+                  id="classRoll"
+                  name="classRoll"
+                  placeholder="e.g. 12"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="schoolRoll">School Roll No</label>
+                <input
+                  type="text"
+                  id="schoolRoll"
+                  name="schoolRoll"
+                  placeholder="e.g. 2024-0312"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input
+                  type="tel"
+                  id="contact"
+                  name="contact"
+                  placeholder="9876543210"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@mail.com"
+                />
+              </div>
+
+              <!-- Actions -->
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="cancel-btn"
+                  onclick="closeModal('newStudentModal')"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  class="submit-btn"
+                  onclick="closeModal('newStudentModal')"
+                >
+                  Add Student
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Class Details Modal -->
+        <div id="classModal" class="modal">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h2>Class 9 - A</h2>
+              <span class="close-btn" onclick="closeModal('classModal')"
+                >&times;</span
+              >
+            </div>
+
+            <!-- Class Summary -->
+            <div class="class-summary">
+              <div><span>Total Students:</span> 130</div>
+              <div><span>Average Rating:</span> 85%</div>
+              <div><span>Class Teacher:</span> Mr. Sharma</div>
+            </div>
+
+            <!-- Student List -->
+            <!-- Student List -->
+            <div class="student-list">
+              <h3>Students</h3>
+              <ul id="student-list-ul">
+                <li>
+                  <div class="student-info">
+                    <span class="student-name">Aarav Singh</span>
+                    <div class="student-summary">
+                      <span>Class Roll No: 12</span> |
+                      <span>School Roll No: 2024-0312</span> |
+                      <span>Contact: 9876543210</span> <br />
+                      <span>Attendance: 92%</span> |
+                      <span>Avg: 87%</span>
+                    </div>
+                  </div>
+                  <button class="update-btn">Update</button>
+                </li>
+
+                <li>
+                  <div class="student-info">
+                    <span class="student-name">Priya Mehta</span>
+                    <div class="student-summary">
+                      <span>Class Roll No: 15</span> |
+                      <span>School Roll No: 2024-0315</span> |
+                      <span>Contact: 9876501234</span> <br />
+                      <span>Attendance: 95%</span> |
+                      <span>Avg: 91%</span>
+                    </div>
+                  </div>
+                  <button class="update-btn">Update</button>
+                </li>
+
+                <li>
+                  <div class="student-info">
+                    <span class="student-name">Rohan Verma</span>
+                    <div class="student-summary">
+                      <span>Class Roll No: 18</span> |
+                      <span>School Roll No: 2024-0318</span> |
+                      <span>Contact: 9876009999</span> <br />
+                      <span>Attendance: 88%</span> |
+                      <span>Avg: 79%</span>
+                    </div>
+                  </div>
+                  <button class="update-btn">Update</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="class-list" id="classlist">
+          <div
+            class="class-card"
+            id="10"
+            onclick="openModal('classModal' , '1')"
+          >
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-card" onclick="openModal('10')">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-card" onclick="openModal('10');">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-card" onclick="openModal('10')">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-card" onclick="openModal('10')">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+          <div class="class-card" onclick="openModal('10')">
+            <div class="header">Class 10</div>
+            <div class="info">
+              <div><span>Total:</span> 130</div>
+              <div><span>Teacher:</span> Mr. Sharma</div>
+            </div>
+            <div class="count-stats">
+              <div class="stat-block">
+                <div class="stat">Boys</div>
+                <div class="number">70</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Girls</div>
+                <div class="number">60</div>
+              </div>
+            </div>
+            <div class="academic-highlight">
+              <div class="stat-block">
+                <div class="stat">Pass %</div>
+                <div class="number">84%</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat">Topper</div>
+                <div class="number">98%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
