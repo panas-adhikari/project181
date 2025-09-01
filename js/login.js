@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         let password = formdata.get("password").trim();
 
         if(username=="admin" && password =="admin"){
-            let token = "token"+Date.now();
-
-            sessionStorage.setItem("auth",token);
-            sessionStorage.setItem("Username",username);
             window.location.href = "home.html";
         }else{
             form.style.backgroundColor = "red";
